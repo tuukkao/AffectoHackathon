@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for the Affecto hackathon project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuusoV/AffectoHackathon.git"
+  },
+  "author": "Tuukka Ojala <tuukka.ojala@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuusoV/AffectoHackathon/issues"
+  },
+  "homepage": "https://github.com/JuusoV/AffectoHackathon#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.2",
+    "morgan": "^1.6.1"
+  }
+}
