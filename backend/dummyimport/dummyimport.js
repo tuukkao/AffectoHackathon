@@ -14,7 +14,7 @@ client.connect(dburl, function(err, db) {
     })
     .forEach(function(j) {
         j.calls.forEach(function(call) {
-            stops.insert({ time: call.arrivalTime, name: call.stopPoint.name }, function(err) {
+            stops.insert({ time: call.arrivalTime, name: call.stopPoint.name, left: 0 }, function(err) {
                 if (err) {
                     throw err;
                 }
