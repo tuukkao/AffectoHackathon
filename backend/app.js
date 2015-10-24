@@ -21,11 +21,16 @@ var stopSchema = mongoose.Schema({
 var Stop = mongoose.model('Stop', stopSchema);
 
 // ===== express config =====
-var app = express()
+var app = express();
 app.use(bodyParser.json());
 app.use(logger('dev'));
+app.use(express.static('../frontend'));
 
 // ===== api routes =====
+app.get('/', function(req, res) {
+    res.sendFile('../frontend/index.html');
+});
+
 app.post('/register', function(req, res) {
     Stop.findOne({ time: "13:00:00" }, function(err, result) {
         if (err) {
@@ -54,9 +59,5 @@ app.get('/stops', function(rec, res) {
     });
 });
 
-app.get("/joo", function(req, res) {
-    var stop = Stop({ time: "15:15:15", name: "Kikkeliskokkelis", left: 900 })
-    .save();
-});
 app.listen(SERVER_PORT);
 console.log("Listening...");
