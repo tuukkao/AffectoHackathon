@@ -14,7 +14,7 @@ db.on('error', console.error.bind('Connection error: '));
 
 // ===== Models =====
 var stopSchema = mongoose.Schema({
-    time: Date,
+    time: String,
     name: String,
     left: { type: Number, default: 0 }
 });
@@ -27,7 +27,7 @@ app.use(logger('dev'));
 
 // ===== api routes =====
 app.post('/register', function(req, res) {
-    Stop.findOne({ time: new Date("2015-10-24T15:15:15") }, function(err, result) {
+    Stop.findOne({ time: "13:00:00" }, function(err, result) {
         if (err) {
             res.status(500).json({ error: err });
         }
@@ -54,5 +54,9 @@ app.get('/stops', function(rec, res) {
     });
 });
 
+app.get("/joo", function(req, res) {
+    var stop = Stop({ time: "15:15:15", name: "Kikkeliskokkelis", left: 900 })
+    .save();
+});
 app.listen(SERVER_PORT);
 console.log("Listening...");
