@@ -1,4 +1,5 @@
 var express = require("express");
+var cors = require("cors");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
@@ -22,6 +23,7 @@ var Stop = mongoose.model('Stop', stopSchema);
 
 // ===== express config =====
 var app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.static('../frontend'));
